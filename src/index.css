@@ -48,14 +48,7 @@ section {
   margin: 0 auto;
 }
 
-.section-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 3rem;
-  text-align: center;
-  letter-spacing: -0.02em;
-}
+
 /* Utilities */
 .ambient-background {
   position: fixed;
