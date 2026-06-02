@@ -2,6 +2,7 @@ import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiMail, FiExternalLink, FiDownload } from 'react-icons/fi';
+import profileImg from '../assets/profile.png';
 
 const About = () => {
   const { name, title, summary, linkedin, github, email } = portfolioData.personalInfo;
@@ -11,7 +12,7 @@ const About = () => {
       <div className="about-container">
         <div className="about-image-wrapper">
           <div className="about-image-placeholder">
-            <img src="/profile.png" alt="Profile" className="about-profile-img" />
+            <img src={profileImg} alt="Profile" className="about-profile-img" />
           </div>
         </div>
         
