@@ -7,17 +7,7 @@ const Projects = () => {
       <h2 className="section-title">Projects</h2>
       <div className="projects-grid">
         {portfolioData.projects.map((project, index) => (
-          <div key={index} className="glass-panel project-card p-0">
-            {project.image && (
-              <div className="project-image-wrapper">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="project-image"
-                  loading="lazy"
-                />
-              </div>
-            )}
+          <div key={index} className="glass-panel project-card">
             <div className="project-content-inner">
               <span className="project-type">{project.type}</span>
               <h3 className="project-title">{project.title}</h3>

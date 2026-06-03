@@ -1,11 +1,12 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiDownload } from 'react-icons/fi';
 import profileImg from '../assets/profile.png';
 
 const About = () => {
   const { name, title, summary, linkedin, github, email } = portfolioData.personalInfo;
+  const article = /^[aeiou]/i.test(title) ? 'an' : 'a';
 
   return (
     <section id="about" className="about-section">
@@ -18,7 +19,7 @@ const About = () => {
         
         <div className="about-content">
           <h2 className="section-title text-left">
-            I'm <span className="text-accent">{name}</span>, a {title}
+            I'm <span className="text-accent">{name}</span>, {article} {title}
           </h2>
           <p className="about-desc">{summary}</p>
           <p className="about-desc">
@@ -34,6 +35,12 @@ const About = () => {
             </a>
             <a href={`mailto:${email}`} className="social-icon-btn">
               <FiMail size={22} />
+            </a>
+          </div>
+
+          <div className="about-actions" style={{ marginTop: '25px' }}>
+            <a href="resume.pdf" download="Kalla_Sudeer_Kumar_Resume.pdf" className="btn-download">
+              <FiDownload size={18} /> Download Resume
             </a>
           </div>
         </div>
