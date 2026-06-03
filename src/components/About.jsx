@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiMail, FiExternalLink, FiDownload } from 'react-icons/fi';
+import { FiMail } from 'react-icons/fi';
 import profileImg from '../assets/profile.png';
 
 const About = () => {
@@ -34,12 +34,6 @@ const About = () => {
             </a>
             <a href={`mailto:${email}`} className="social-icon-btn">
               <FiMail size={22} />
-            </a>
-          </div>
-
-          <div className="about-actions">
-            <a href="#" className="btn-download">
-              <FiDownload size={18} /> Download Resume -- very soon to upload
             </a>
           </div>
         </div>

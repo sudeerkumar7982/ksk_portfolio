@@ -561,6 +561,24 @@ section {
   opacity: 1;
 }
 
+.project-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(41, 151, 255, 0.1) 0%, rgba(255, 41, 151, 0.05) 100%);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
 .project-content-inner {
   padding: 30px;
   display: flex;
