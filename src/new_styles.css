@@ -1,4 +1,4 @@
-/* About Section (Apple Style) */
+/* About Section */
 .about-section {
   padding: 120px 20px;
   background: transparent;
@@ -11,13 +11,13 @@
   gap: 60px;
 }
 .about-image-wrapper {
-  flex: 0 0 350px;
+  flex: 0 0 320px;
 }
 .about-image-placeholder {
   width: 100%;
   aspect-ratio: 1;
-  background: var(--surface-color);
-  border-radius: 32px;
+  background: var(--warm-sand);
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,11 +25,11 @@
   overflow: hidden;
   position: relative;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 16px 48px rgba(120, 70, 20, 0.14), 0 4px 12px rgba(120, 70, 20, 0.06);
 }
 .about-image-placeholder:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(41, 151, 255, 0.2);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 28px 60px rgba(194, 105, 42, 0.18);
 }
 .about-profile-img {
   width: 100%;
@@ -39,34 +39,37 @@
 .about-content {
   flex: 1;
 }
+.text-left { text-align: left; }
+.text-left::after { margin: 12px 0 0; }
+.text-accent { color: var(--accent-color); }
 .about-desc {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 24px;
 }
 .about-social {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 32px;
 }
 .social-icon-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: var(--surface-color);
-  color: var(--text-primary);
+  background: var(--warm-sand);
+  color: var(--text-secondary);
   border: 1px solid var(--border-color);
-  backdrop-filter: blur(20px);
   transition: all 0.3s ease;
 }
 .social-icon-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(232, 146, 62, 0.12);
   transform: translateY(-3px);
   color: var(--accent-color);
+  border-color: rgba(194, 105, 42, 0.35);
 }
 .about-actions {
   display: flex;
@@ -77,22 +80,25 @@
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  background: var(--text-primary);
-  color: var(--bg-color);
-  border-radius: 30px;
-  font-weight: 500;
+  background: var(--accent-gradient);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 18px rgba(194, 105, 42, 0.28);
 }
 .btn-download:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(194, 105, 42, 0.38);
 }
 @media (max-width: 900px) {
   .about-container { flex-direction: column; text-align: center; }
-  .about-image-wrapper { width: 280px; margin: 0 auto; }
+  .about-image-wrapper { width: 260px; margin: 0 auto; }
   .about-social, .about-actions { justify-content: center; }
+  .text-left::after { margin: 12px auto 0; }
 }
 
-/* Roadmap / Map Journey Section */
+/* Roadmap / Journey Section */
 .journey-section {
   padding: 120px 20px;
   background: transparent;
@@ -110,10 +116,16 @@
   transform: translateX(-50%);
   top: 0;
   bottom: 0;
-  width: 6px;
-  background-image: linear-gradient(var(--accent-color) 50%, transparent 50%);
-  background-size: 6px 20px; /* Dashed path */
-  border-radius: 3px;
+  width: 3px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--accent-color) 0px,
+    var(--accent-color) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  opacity: 0.5;
+  border-radius: 2px;
 }
 .roadmap-item {
   display: flex;
@@ -132,75 +144,82 @@
   left: 50%;
   top: 20px;
   transform: translateX(-50%);
-  color: var(--text-primary);
+  color: var(--accent-color);
   z-index: 2;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: var(--warm-sand);
   padding: 10px;
   border-radius: 50%;
-  border: 1px solid var(--border-color);
+  border: 2px solid rgba(194, 105, 42, 0.3);
+  box-shadow: 0 4px 14px rgba(194, 105, 42, 0.18);
 }
 .roadmap-card {
   background: var(--surface-color);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 18px;
+  padding: 28px 30px;
   width: 100%;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  box-shadow: 0 4px 20px rgba(120, 70, 20, 0.07);
 }
-/* Signpost pointing triangle */
+/* Connector triangle - left card */
 .roadmap-item:not(.right) .roadmap-card::after {
   content: '';
   position: absolute;
   top: 30px;
-  right: -12px;
-  border-width: 12px 0 12px 12px;
+  right: -11px;
+  border-width: 11px 0 11px 11px;
   border-style: solid;
-  border-color: transparent transparent transparent var(--accent-color);
+  border-color: transparent transparent transparent var(--border-color);
 }
+/* Connector triangle - right card */
 .roadmap-item.right .roadmap-card::after {
   content: '';
   position: absolute;
   top: 30px;
-  left: -12px;
-  border-width: 12px 12px 12px 0;
+  left: -11px;
+  border-width: 11px 11px 11px 0;
   border-style: solid;
-  border-color: transparent var(--accent-color) transparent transparent;
+  border-color: transparent var(--border-color) transparent transparent;
 }
 .roadmap-card:hover {
   transform: translateY(-5px) scale(1.02);
-  background: var(--surface-hover);
+  box-shadow: 0 12px 36px rgba(120, 70, 20, 0.12);
+  border-color: rgba(194, 105, 42, 0.3);
 }
 .roadmap-year {
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--accent-color);
+  font-weight: 700;
   margin-bottom: 8px;
   display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
+  background: rgba(194, 105, 42, 0.1);
+  padding: 4px 14px;
   border-radius: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
 }
 .roadmap-title {
   font-size: 1.3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 6px;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.01em;
 }
 .roadmap-sub {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin-bottom: 15px;
-  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--accent-color);
+  margin-bottom: 12px;
+  font-weight: 500;
+  opacity: 0.85;
 }
 .roadmap-desc {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.75;
 }
 @media (max-width: 768px) {
   .roadmap-container::before { left: 30px; }
@@ -212,9 +231,9 @@
   .roadmap-marker { left: 30px; }
   .roadmap-item:not(.right) .roadmap-card::after {
     right: auto;
-    left: -12px;
-    border-width: 12px 12px 12px 0;
-    border-color: transparent var(--accent-color) transparent transparent;
+    left: -11px;
+    border-width: 11px 11px 11px 0;
+    border-color: transparent var(--border-color) transparent transparent;
   }
 }
 
@@ -227,7 +246,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 44px;
 }
 .techstack-row {
   display: flex;
@@ -237,38 +256,40 @@
 .techstack-label {
   width: 130px;
   flex-shrink: 0;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--text-secondary);
   padding-top: 12px;
   text-transform: uppercase;
+  opacity: 0.7;
 }
 .techstack-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
   flex: 1;
 }
 .tech-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--surface-color);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--warm-sand);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 12px 20px;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--text-primary);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: default;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(120, 70, 20, 0.05);
 }
 .tech-item:hover {
-  background: var(--surface-hover);
+  background: rgba(232, 146, 62, 0.1);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-color: rgba(194, 105, 42, 0.3);
+  box-shadow: 0 8px 20px rgba(120, 70, 20, 0.1);
 }
 .tech-item img {
   width: 22px;
@@ -282,7 +303,7 @@
 /* GitHub Activity Section */
 .github-section {
   padding: 100px 20px;
-  background: var(--surface-color);
+  background: rgba(255, 245, 225, 0.3);
 }
 .github-stats-grid {
   display: grid;
@@ -293,38 +314,39 @@
 }
 .github-stat-card {
   background: var(--surface-color);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 28px;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(120, 70, 20, 0.06);
 }
 .github-stat-card:hover {
   transform: translateY(-4px) scale(1.02);
-  background: var(--surface-hover);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 32px rgba(120, 70, 20, 0.12);
+  border-color: rgba(194, 105, 42, 0.3);
 }
 .github-stat-number {
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--accent-color);
   margin-bottom: 8px;
+  font-family: 'Caveat', cursive;
+  letter-spacing: 0.02em;
 }
 .github-stat-label {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
+  font-weight: 500;
 }
 .github-activity-feed {
   max-width: 900px;
   margin: 0 auto;
   background: var(--surface-color);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
   border: 1px solid var(--border-color);
-  border-radius: 24px;
+  border-radius: 22px;
   padding: 30px;
+  box-shadow: 0 4px 20px rgba(120, 70, 20, 0.07);
 }
 .feed-header {
   display: flex;
@@ -335,12 +357,14 @@
 .feed-header h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--text-primary);
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
 }
 .feed-header a {
   color: var(--accent-color);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.88rem;
+  font-weight: 600;
   transition: opacity 0.2s;
 }
 .feed-header a:hover { opacity: 0.7; }
@@ -356,12 +380,13 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--surface-color);
+  background: rgba(232, 146, 62, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-color);
   flex-shrink: 0;
+  border: 1px solid rgba(194, 105, 42, 0.15);
 }
 .activity-text { flex: 1; }
 .activity-title {
@@ -372,10 +397,13 @@
 .activity-meta {
   font-size: 0.82rem;
   color: var(--text-secondary);
+  opacity: 0.7;
 }
 .github-loading {
   text-align: center;
   color: var(--text-secondary);
   padding: 20px;
   font-size: 0.95rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
 }
